@@ -1,9 +1,19 @@
+from functions import psh_cd
+from functions import *
+
 def main():
     while True:
-        command = input("$ ")
-        if command == "exit":
+        inp = input("$ ")
+        if inp == "exit":
             break
-        elif command == "help" or command == "h":
-            print("psh: a simple shell written in Python")
+        elif inp[:3] == "cd ":
+            psh_cd(inp[:3])
+        elif inp == "help" or inp == "h":
+            psh_help()
         else:
-            execute_commands(command)
+            execute(inp)
+
+
+if '__main__' == __name__:
+    main()
+
